@@ -29,7 +29,7 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     ".pythonanywhere.com",
     "localhost",
-    "https://whiff-backend-5f278bf19e19.herokuapp.com/",
+    ".whiff-backend-5f278bf19e19.herokuapp.com",
 ]
 
 
