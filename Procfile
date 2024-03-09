@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn whiff-backend.wsgi
+web: gunicorn whiff.wsgi
