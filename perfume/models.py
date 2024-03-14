@@ -8,6 +8,7 @@ from taggit.managers import TaggableManager
 # Models are saved in the database
 # Think of a model in the database as a spreadsheet with columns (fields) and rows (data)
 class Designer(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200, unique=True)
     logo = models.URLField(max_length=300)
 
@@ -19,6 +20,7 @@ class Designer(models.Model):
 
 
 class Note(models.Model):
+    id = models.AutoField(primary_key=True)
     note = models.CharField(max_length=200, unique=True)
     image = models.URLField(max_length=300)
 
@@ -30,6 +32,7 @@ class Note(models.Model):
 
 
 class Accord(models.Model):
+    id = models.AutoField(primary_key=True)
     accord = models.CharField(max_length=200, unique=True)
 
     class Meta:
@@ -40,6 +43,7 @@ class Accord(models.Model):
 
 
 class Perfume(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200)
     image = models.URLField(max_length=300)
 
@@ -58,6 +62,9 @@ class Perfume(models.Model):
     rating = models.IntegerField(default=1)
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False, blank=True)
     updated = models.DateTimeField(auto_now=True, blank=True)
+
+    class Meta:
+        ordering = ["name"]
 
     def __str__(self) -> str:
         return f"{self.name} by {self.designer}"
