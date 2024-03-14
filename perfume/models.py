@@ -22,12 +22,18 @@ class Note(models.Model):
     note = models.CharField(max_length=200)
     image = models.URLField(max_length=300)
 
+    class Meta:
+        ordering = ["note"]
+
     def __str__(self) -> str:
         return self.note
 
 
 class Accord(models.Model):
     accord = models.CharField(max_length=200)
+
+    class Meta:
+        ordering = ["accord"]
 
     def __str__(self) -> str:
         return self.accord
@@ -47,8 +53,7 @@ class Perfume(models.Model):
 
     notes = models.ManyToManyField(Note)
     accords = models.ManyToManyField(Accord)
-    likes = models.IntegerField(default=0)
-    dislikes = models.IntegerField(default=0)
+    rating = models.IntegerField(default=1)
 
     def __str__(self) -> str:
         return f"{self.name} by {self.designer}"
