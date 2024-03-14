@@ -52,6 +52,20 @@ class DesignerListApiView(APIView):
         serializer = DesignerSerializer(designers, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    def post(self, request, *args, **kwargs):
+        """Create the Perfume with given perfume data"""
+        data = {
+            "name": request.data.get("name"),
+            "logo": request.data.get("image"),
+        }
+
+        serializer = PerfumeSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class NoteListApiView(APIView):
     # 1. List all
@@ -61,6 +75,19 @@ class NoteListApiView(APIView):
         serializer = NoteSerializer(notes, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    def post(self, request, *args, **kwargs):
+        """Create the Perfume with given perfume data"""
+        data = {
+            "accord": request.data.get("name"),
+        }
+
+        serializer = PerfumeSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class AccordListApiView(APIView):
     # 1. List all
@@ -69,3 +96,17 @@ class AccordListApiView(APIView):
         accords = Accord.objects
         serializer = AccordSerializer(accords, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, *args, **kwargs):
+        """Create the Perfume with given perfume data"""
+        data = {
+            "name": request.data.get("name"),
+            "logo": request.data.get("image"),
+        }
+
+        serializer = PerfumeSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

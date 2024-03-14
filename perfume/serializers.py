@@ -15,10 +15,13 @@ class PerfumeSerializer(TaggitSerializer, serializers.ModelSerializer):
             "designer",
             "summary",
             "tags",
-            "notes",
+            "top_notes",
+            "heart_notes",
+            "base_notes",
             "accords",
-            "likes",
-            "dislikes",
+            "rating",
+            "timestamp",
+            "updated",
         )
 
 

@@ -8,7 +8,7 @@ from taggit.managers import TaggableManager
 # Models are saved in the database
 # Think of a model in the database as a spreadsheet with columns (fields) and rows (data)
 class Designer(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
     logo = models.URLField(max_length=300)
 
     class Meta:
@@ -19,7 +19,7 @@ class Designer(models.Model):
 
 
 class Note(models.Model):
-    note = models.CharField(max_length=200)
+    note = models.CharField(max_length=200, unique=True)
     image = models.URLField(max_length=300)
 
     class Meta:
@@ -30,7 +30,7 @@ class Note(models.Model):
 
 
 class Accord(models.Model):
-    accord = models.CharField(max_length=200)
+    accord = models.CharField(max_length=200, unique=True)
 
     class Meta:
         ordering = ["accord"]
@@ -51,9 +51,13 @@ class Perfume(models.Model):
     )
     tags = TaggableManager()
 
-    notes = models.ManyToManyField(Note)
+    top_notes = models.ManyToManyField(Note, related_name="top_notes")
+    heart_notes = models.ManyToManyField(Note, related_name="heart_notes")
+    base_notes = models.ManyToManyField(Note, related_name="base_notes")
     accords = models.ManyToManyField(Accord)
     rating = models.IntegerField(default=1)
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False, blank=True)
+    updated = models.DateTimeField(auto_now=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.name} by {self.designer}"
