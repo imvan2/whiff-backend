@@ -10,6 +10,7 @@ class PerfumeSerializer(TaggitSerializer, serializers.ModelSerializer):
     class Meta:
         model = Perfume
         fields = (
+            "id",
             "name",
             "image",
             "designer",
@@ -28,16 +29,16 @@ class PerfumeSerializer(TaggitSerializer, serializers.ModelSerializer):
 class DesignerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Designer
-        fields = ("name", "logo")
+        fields = ("id", "name", "logo")
 
 
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
-        fields = ("note", "image")
+        fields = ("id", "note", "image")
 
 
 class AccordSerializer(serializers.ModelSerializer):
     class Meta:
         model = Accord
-        fields = "__all__"
+        fields = ("id", "accord")

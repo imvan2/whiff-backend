@@ -16,7 +16,7 @@ class Designer(models.Model):
         ordering = ["name"]
 
     def __str__(self) -> str:
-        return self.name
+        return self.name + ", pk= " + str(self.id)
 
 
 class Note(models.Model):
