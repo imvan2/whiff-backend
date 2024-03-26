@@ -1,23 +1,18 @@
-# How to host on heroku with django and gunicorn
+This project is connected to Whiff-Frontend repo: [Whiff-frontend](https://github.com/imvan2/whiff-frontend)
 
-https://stackoverflow.com/questions/69605603/what-should-go-in-my-procfile-for-a-django-application
+Tech Stack: Django, SQLite database, Heroku Hosting includes Gunicorn, Django-Taggit
 
-# Deploying with Heroku
+Website: [Whiff-backend](https://whiff-backend-5f278bf19e19.herokuapp.com/api/perfume)
 
-https://devcenter.heroku.com/articles/getting-started-with-python#create-and-deploy-the-app
+Command line codes:
+
+Django lines
+`python manage.py makemigrations`
+`python manage.py migrate`
+`python manage.py runserver`
+
+Activate venv
+`myvenv\Scripts\activate`
+
+To push to Heroku
 `git push heroku main`
-`heroku logs --tail`
-
-# Adding and pushing with heroku
-
-https://devcenter.heroku.com/articles/git
-
-# Backend website
-
-https://whiff-backend-5f278bf19e19.herokuapp.com/api/perfume
-
-https://blog.logrocket.com/django-rest-framework-create-api/#what-is-rest-api
-
-# For taggable serializer
-
-https://django-taggit.readthedocs.io/en/latest/serializers.html
