@@ -4,7 +4,7 @@ from taggit.serializers import TagListSerializerField, TaggitSerializer
 
 
 class PerfumeSerializer(TaggitSerializer, serializers.ModelSerializer):
-    tags = tags = TagListSerializerField()
+    tags = TagListSerializerField()
 
     # Specify model and fields
     class Meta:
